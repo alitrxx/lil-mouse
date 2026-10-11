@@ -1,0 +1,490 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* Hand-drawn storybook palette */
+:root {
+  --radius: 0.625rem;
+
+  /* Project palette — matched to reference illustration */
+  --night-midnight: #0A0F1A;  /* deep sky top */
+  --night-deep: #1A2A44;      /* river deep / mid sky */
+  --night-muted: #2A3A5C;    /* mid sky blue */
+  --night-horizon: #4A4A6A;  /* horizon glow band */
+  --night-hill-far: #3A4A6A; /* most distant hill */
+  --night-hill-mid: #2A3A54; /* middle hill */
+  --night-hill-near: #1A2535;/* near hill silhouette */
+  --earth: #1A2A28;          /* foreground earth (warmer green-blue) */
+  --earth-deep: #152520;     /* deepest grass shadow */
+  --moonlight: #A8B8D0;      /* cool moonlight / reflection */
+  --moon-white: #E8EAF0;     /* the moon itself */
+  --hair-black: #0A0A0F;     /* girl's hair */
+  --sweater-dark: #0F1419;   /* girl's sweater */
+  --skirt-light: #8A9AA8;    /* girl's skirt */
+  --ribbon-blue: #B8C8D8;    /* hair ribbon bow */
+  --paper-cream: #F1E7D5;    /* letter paper (kept) */
+  --paper-warm: #E8E4DC;     /* the open letter's off-white paper */
+  --envelope-cream: #D8D0C0; /* sealed envelope color */
+  --warm-gold: #D9C58F;      /* gold accents (kept) */
+  --firefly-gold: #E0E8A0;   /* warmer yellow-green fireflies */
+  --flower-white: #D0E0F0;   /* forget-me-not style petals */
+  --gray-blue: #C2CBD8;      /* soft cool accent (kept) */
+
+  /* Tailwind shadcn tokens (kept for compatibility) */
+  --background: #0A0F1A;
+  --foreground: #F1E7D5;
+  --card: #18294B;
+  --card-foreground: #F1E7D5;
+  --popover: #18294B;
+  --popover-foreground: #F1E7D5;
+  --primary: #A8B8D0;
+  --primary-foreground: #0A0F1A;
+  --secondary: #30496F;
+  --secondary-foreground: #F1E7D5;
+  --muted: #18294B;
+  --muted-foreground: #C2CBD8;
+  --accent: #D9C58F;
+  --accent-foreground: #0A0F1A;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: rgba(241, 231, 213, 0.18);
+  --input: rgba(241, 231, 213, 0.18);
+  --ring: #A8B8D0;
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: #18294B;
+  --sidebar-foreground: #F1E7D5;
+  --sidebar-primary: #A8C7E8;
+  --sidebar-primary-foreground: #101A35;
+  --sidebar-accent: #30496F;
+  --sidebar-accent-foreground: #F1E7D5;
+  --sidebar-border: rgba(241, 231, 213, 0.18);
+  --sidebar-ring: #A8C7E8;
+}
+
+.dark {
+  --background: #0A0F1A;
+  --foreground: #F1E7D5;
+}
+
+/* Local Vazirmatn Persian font */
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('/fonts/Vazirmatn-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('/fonts/Vazirmatn-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('/fonts/Vazirmatn-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('/fonts/Vazirmatn-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html, body {
+    background-color: var(--night-midnight);
+    color: var(--paper-cream);
+    font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  /* Persian text shaping fixes */
+  .font-persian {
+    font-family: 'Vazirmatn', system-ui, sans-serif;
+    font-feature-settings: "ss01", "ss02", "ss03";
+    font-variant-numeric: persian;
+  }
+  .font-persian-heading {
+    font-family: 'Vazirmatn', system-ui, sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+  }
+  /* Slight irregular handwritten feel via slight rotation */
+  .hand-tilt-left { transform: rotate(-0.6deg); }
+  .hand-tilt-right { transform: rotate(0.6deg); }
+}
+
+/* ---------------------------------------------------------------- */
+/* Environmental keyframe animations — kept lightweight, mostly CSS */
+/* ---------------------------------------------------------------- */
+
+/* Slow shimmer for the river highlights */
+@keyframes riverShimmer {
+  0%, 100% { opacity: 0.55; transform: translateX(0) scaleY(1); }
+  50% { opacity: 0.95; transform: translateX(8px) scaleY(1.04); }
+}
+
+/* Subtle grass sway */
+@keyframes grassSway {
+  0%, 100% { transform: rotate(-1.2deg); }
+  50% { transform: rotate(1.5deg); }
+}
+
+/* Star twinkle */
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+/* Firefly drifting paths */
+@keyframes fireflyDrift1 {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(14px, -18px); }
+  50%  { transform: translate(-6px, -32px); }
+  75%  { transform: translate(-18px, -12px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes fireflyDrift2 {
+  0%   { transform: translate(0, 0); }
+  33%  { transform: translate(-22px, 10px); }
+  66%  { transform: translate(8px, 22px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes fireflyDrift3 {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(20px, -14px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Firefly glow pulse — warmer yellow-green */
+@keyframes fireflyGlow {
+  0%, 100% { opacity: 0.25; box-shadow: 0 0 4px 2px rgba(224, 232, 160, 0.4); }
+  50% { opacity: 1; box-shadow: 0 0 12px 5px rgba(224, 232, 160, 0.9); }
+}
+
+/* Girl's hair / clothing gentle breeze */
+@keyframes hairBreeze {
+  0%, 100% { transform: rotate(-0.8deg); }
+  50% { transform: rotate(0.8deg); }
+}
+
+/* Moonlight glow breathing */
+@keyframes moonGlow {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 0.8; }
+}
+
+/* Distant hill breathing */
+@keyframes hillBreathe {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+/* Moon reflection on water — slow elongated shimmer */
+@keyframes moonReflection {
+  0%, 100% { opacity: 0.5; transform: scaleY(1); }
+  50% { opacity: 0.85; transform: scaleY(1.06); }
+}
+
+/* Tree branch gentle sway (only the silhouette leaves) */
+@keyframes branchSway {
+  0%, 100% { transform: rotate(-0.4deg); }
+  50% { transform: rotate(0.6deg); }
+}
+
+/* Slow ambient float for envelope while waiting */
+@keyframes envelopeFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* Hint pulse */
+@keyframes hintPulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* Utility animation classes — durations kept slow & peaceful */
+.anim-river     { animation: riverShimmer 6s ease-in-out infinite; transform-origin: center; }
+.anim-grass     { animation: grassSway 5.5s ease-in-out infinite; transform-origin: bottom center; }
+.anim-star      { animation: starTwinkle 4s ease-in-out infinite; }
+.anim-firefly-1 { animation: fireflyDrift1 14s ease-in-out infinite; }
+.anim-firefly-2 { animation: fireflyDrift2 18s ease-in-out infinite; }
+.anim-firefly-3 { animation: fireflyDrift3 11s ease-in-out infinite; }
+.anim-glow      { animation: fireflyGlow 3.2s ease-in-out infinite; }
+.anim-hair      { animation: hairBreeze 6.5s ease-in-out infinite; transform-origin: top center; }
+.anim-moon      { animation: moonGlow 9s ease-in-out infinite; }
+.anim-hill      { animation: hillBreathe 10s ease-in-out infinite; }
+.anim-envelope  { animation: envelopeFloat 5s ease-in-out infinite; }
+.anim-hint      { animation: hintPulse 2.8s ease-in-out infinite; }
+.anim-moon-refl { animation: moonReflection 7s ease-in-out infinite; transform-origin: center; }
+.anim-branch    { animation: branchSway 9s ease-in-out infinite; transform-origin: top left; }
+
+/* Stagger helpers */
+.delay-1 { animation-delay: 0.5s; }
+.delay-2 { animation-delay: 1.2s; }
+.delay-3 { animation-delay: 2s; }
+.delay-4 { animation-delay: 2.8s; }
+
+/* ---------------------------------------------------------------- */
+/* Hand-drawn paper texture (subtle SVG-like grain via gradients)   */
+/* ---------------------------------------------------------------- */
+.paper-grain {
+  background-color: var(--paper-cream);
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(217, 197, 143, 0.10) 0, transparent 30%),
+    radial-gradient(circle at 82% 70%, rgba(48, 73, 111, 0.08) 0, transparent 35%),
+    radial-gradient(circle at 50% 50%, rgba(194, 203, 216, 0.06) 0, transparent 60%),
+    repeating-linear-gradient(115deg, rgba(217, 197, 143, 0.025) 0 2px, transparent 2px 6px),
+    repeating-linear-gradient(35deg, rgba(48, 73, 111, 0.018) 0 2px, transparent 2px 7px);
+}
+
+/* Irregular paper edge using SVG filter — defined once, used via class */
+.paper-edge {
+  filter: url(#paperRoughEdge);
+}
+
+/* Photo sticker tape */
+.tape-corner {
+  background: linear-gradient(135deg, rgba(217, 197, 143, 0.65) 0%, rgba(217, 197, 143, 0.45) 100%);
+  box-shadow: 0 1px 2px rgba(16, 26, 53, 0.18);
+}
+
+/* Focus ring for accessibility — visible against dark background */
+.focus-ring:focus-visible {
+  outline: 2px solid var(--moonlight);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Hide scrollbars on body during letter view but keep functional */
+.no-scrollbar::-webkit-scrollbar { width: 8px; }
+.no-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.no-scrollbar::-webkit-scrollbar-thumb { background: rgba(168, 199, 232, 0.35); border-radius: 4px; }
+
+/* Reduced motion: disable continuous animations */
+@media (prefers-reduced-motion: reduce) {
+  .anim-river, .anim-grass, .anim-star, .anim-firefly-1,
+  .anim-firefly-2, .anim-firefly-3, .anim-glow, .anim-hair,
+  .anim-moon, .anim-hill, .anim-envelope, .anim-hint,
+  .anim-moon-refl, .anim-branch {
+    animation: none !important;
+  }
+  * {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Letter body text */
+.letter-body {
+  color: #2C3E5C;
+  line-height: 2.05;
+  font-size: 1.05rem;
+  text-align: justify;
+  text-justify: inter-word;
+}
+.letter-body p {
+  margin-bottom: 1.1rem;
+}
+.letter-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Subtle decorative dashed margin */
+.dashed-margin {
+  background-image: repeating-linear-gradient(90deg, rgba(48, 73, 111, 0.25) 0 4px, transparent 4px 9px);
+  height: 1px;
+}
+
+/* Scene image — the rendered illustration fills the viewport. The
+   object-position aligns the envelope's image position with the
+   envelope button's viewport position (so they sit exactly on top
+   of each other).
+
+   Verified envelope position in the cropped top panel image:
+     - Desktop image (1920x877): envelope at image (15-19%, 59-75%),
+       center (17%, 67%).
+     - Mobile image (604x1080, portrait crop centered on envelope):
+       envelope at image (50%, 67%).
+
+   So we set object-position so that image (17%, 67%) maps to viewport
+   (17%, 67%) on desktop, and image (50%, 67%) maps to viewport
+   (50%, 67%) on mobile. */
+.scene-image {
+  object-fit: cover;
+  /* Default center — the scene is balanced and the envelope sits in the
+     lower-left where the girl is holding it. */
+  object-position: 50% 50%;
+}
+@media (max-aspect-ratio: 1/1) {
+  .scene-image {
+    /* On portrait mobile, shift the visible window to the lower-left
+       where the girl + envelope are. The moon (upper-right) is cropped
+       off on mobile — we accept this trade-off because the girl +
+       envelope are the most important interactive elements. */
+    object-fit: cover;
+    object-position: 17% 67%;
+  }
+}
+
+/* ============================================================
+   Open Letter — mobile-first responsive font sizing
+   ============================================================
+   The letter is designed for mobile phones first (390×844), then
+   scales up for tablet and desktop. Font sizes use clamp() with
+   viewport-based units so they scale smoothly across breakpoints.
+
+   Breakpoints:
+     - Mobile:  up to 600px   (body 14-16px, line-height 1.8)
+     - Tablet:  601-1024px    (body 15-18px, line-height 1.8)
+     - Desktop: above 1024px (body 16-18px, line-height 1.8)
+*/
+.letter-heading {
+  /* Mobile: 16-18px heading on 390px viewport */
+  font-size: clamp(1rem, 5vw, 1.4rem);
+  line-height: 1.3;
+}
+@media (min-width: 601px) {
+  .letter-heading {
+    /* Tablet: 18-22px */
+    font-size: clamp(1.125rem, 3vw, 1.5rem);
+  }
+}
+@media (min-width: 1025px) {
+  .letter-heading {
+    /* Desktop: 20-24px */
+    font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  }
+}
+
+.letter-body {
+  /* Mobile: 13-14px body text on 390px viewport (readable, fits more text) */
+  font-size: clamp(0.8125rem, 3.6vw, 0.875rem);
+  line-height: 1.7;
+}
+@media (min-width: 601px) {
+  .letter-body {
+    /* Tablet: 15-17px */
+    font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+    line-height: 1.8;
+  }
+}
+@media (min-width: 1025px) {
+  .letter-body {
+    /* Desktop: 16-17px */
+    font-size: clamp(1rem, 1.3vw, 1.0625rem);
+    line-height: 1.8;
+  }
+}
+
+/* Emphasized paragraphs (final greeting) — slightly larger */
+.letter-body p {
+  /* Default body size, but emphasized paragraphs override below */
+}
+.letter-body p:last-child,
+.letter-body p[style*="fontWeight: 700"],
+.letter-body p[style*="font-weight: 700"] {
+  font-size: clamp(1rem, 4.8vw, 1.25rem);
+}
+@media (min-width: 601px) {
+  .letter-body p[style*="fontWeight: 700"],
+  .letter-body p[style*="font-weight: 700"] {
+    font-size: clamp(1.125rem, 2.5vw, 1.4rem);
+  }
+}
+@media (min-width: 1025px) {
+  .letter-body p[style*="fontWeight: 700"],
+  .letter-body p[style*="font-weight: 700"] {
+    font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+  }
+}
+
+/* Letter text container — visible scrollbar styling */
+.letter-text-container::-webkit-scrollbar {
+  width: 6px;
+}
+.letter-text-container::-webkit-scrollbar-track {
+  background: rgba(42, 58, 92, 0.08);
+  border-radius: 3px;
+}
+.letter-text-container::-webkit-scrollbar-thumb {
+  background: rgba(42, 58, 92, 0.55);
+  border-radius: 3px;
+}
+.letter-text-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(42, 58, 92, 0.75);
+}
+
+/* Scroll fade indicator at the bottom of the text container —
+   a subtle gradient that hints there's more content to scroll. */
+.letter-text-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(232, 228, 220, 0.6) 80%,
+    rgba(232, 228, 220, 0.85) 100%
+  );
+  pointer-events: none;
+  z-index: 5;
+}

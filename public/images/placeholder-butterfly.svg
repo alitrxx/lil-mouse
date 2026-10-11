@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 300" width="240" height="300" role="img" aria-label="جای عکس — پروانه دست‌ساز">
+  <rect width="240" height="300" fill="#F1E7D5"/>
+  <g fill="none" stroke="#30496F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+    <path d="M120 100c-22-26-58-22-66-2-6 18 8 32 26 36-22 4-38 22-30 42 8 22 40 22 60-2-4 16 0 30 10 30s14-14 10-30c20 24 52 24 60 2 8-20-8-38-30-42 18-4 32-18 26-36-8-20-44-24-66 2z" fill="#A8C7E8" fill-opacity="0.45"/>
+    <path d="M120 100v80M116 100c-4-6-2-14 4-20M124 100c4-6 2-14-4-20"/>
+    <circle cx="120" cy="105" r="3" fill="#30496F"/>
+  </g>
+  <text x="120" y="285" text-anchor="middle" font-family="serif" font-size="14" fill="#30496F" opacity="0.7">عکس یادگاری</text>
+</svg>
